@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="theme-color" content="#0F172A">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Staff console | Broutelogistics</title>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/utils.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+</head>
+<body class="admin">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Broutelogistics home"><svg class="icon" aria-hidden="true"><use href="#i-package"/></svg><span>Broute<b>Logistics</b></span></a>
+      <div class="header-actions">
+        <span class="who" id="whoami" hidden></span>
+        <a class="btn btn-ghost btn-sm" href="index.html">View site</a>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button" hidden>Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Sign in -->
+    <section id="loginView" class="login-wrap" hidden>
+      <div class="card">
+        <h1 class="h2">Staff sign in</h1>
+        <p class="lead">Authorised staff only.</p>
+        <form id="loginForm" novalidate>
+          <div class="field"><label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="username" required></div>
+          <div class="field mt"><label for="lPass">Password</label><input id="lPass" type="password" autocomplete="current-password" required></div>
+          <button class="btn btn-primary mt" id="lBtn" type="submit">Sign in</button>
+        </form>
+        <div id="loginMsg" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Console -->
+    <div id="appView" class="stack" hidden>
+      <div class="page-head"><h1>Staff console</h1></div>
+      <div class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab" role="tab" id="tabShip" aria-selected="true" aria-controls="panelShip" type="button">Shipments</button>
+        <button class="tab" role="tab" id="tabInq" aria-selected="false" aria-controls="panelInq" type="button">Enquiries <span class="count" id="inqCount" hidden></span></button>
+      </div>
+
+      <div id="panelShip" role="tabpanel" aria-labelledby="tabShip" class="stack">
+        <section class="card" aria-labelledby="createTitle">
+          <h2 id="createTitle">New shipment</h2>
+          <p class="lead">A unique tracking number is generated automatically. New shipments always start as "Created".</p>
+          <form id="createForm" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="description">Goods description</label><input id="description" name="description" type="text" maxlength="120" required></div>
+              <div class="field"><label for="service">Service</label><select id="service" name="service"><option>Express</option><option>Air Freight</option><option>Ocean Freight</option></select></div>
+              <div class="field"><label for="origin">Origin</label><input id="origin" name="origin" type="text" maxlength="100" placeholder="City, Country" required></div>
+              <div class="field"><label for="destination">Destination</label><input id="destination" name="destination" type="text" maxlength="100" placeholder="City, Country" required></div>
+              <div class="field"><label for="sender">Sender name</label><input id="sender" name="sender" type="text" maxlength="100"></div>
+              <div class="field"><label for="recipient">Recipient name</label><input id="recipient" name="recipient" type="text" maxlength="100"></div>
+              <div class="field"><label for="contact">Recipient contact</label><input id="contact" name="contact" type="text" maxlength="120" placeholder="Email or phone"></div>
+              <div class="field"><label for="weight">Weight (kg)</label><input id="weight" name="weight" type="number" min="0.01" step="0.01"></div>
+            </div>
+            <button class="btn btn-accent" id="createBtn" type="submit">Generate tracking number</button>
+          </form>
+          <div id="createMsg" aria-live="polite"></div>
+        </section>
+
+        <section class="card" aria-labelledby="listTitle">
+          <div class="toolbar">
+            <h2 id="listTitle">All shipments</h2>
+            <div class="group">
+              <label class="visually-hidden" for="searchBox">Search shipments</label>
+              <input class="search" id="searchBox" type="search" placeholder="Search tracking no., goods, recipient…" maxlength="60">
+              <label class="visually-hidden" for="statusFilter">Filter by status</label>
+              <select class="search" id="statusFilter"><option value="">All statuses</option></select>
+            </div>
+          </div>
+          <div id="listMsg" aria-live="polite"></div>
+          <div class="table-wrap">
+            <table class="table stack-sm">
+              <caption class="visually-hidden">Shipments</caption>
+              <thead><tr><th scope="col">Tracking no.</th><th scope="col">Goods</th><th scope="col">Route</th><th scope="col">Status</th><th scope="col">Updated</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+              <tbody id="shipmentRows"></tbody>
+            </table>
+          </div>
+          <p class="empty" id="emptyState" hidden>No shipments found.</p>
+          <div class="pager">
+            <button class="btn btn-ghost btn-sm" id="prevBtn" type="button">Previous</button>
+            <span id="pageInfo"></span>
+            <button class="btn btn-ghost btn-sm" id="nextBtn" type="button">Next</button>
+          </div>
+        </section>
+      </div>
+
+      <div id="panelInq" role="tabpanel" aria-labelledby="tabInq" class="stack" hidden>
+        <section class="card" aria-labelledby="inqTitle">
+          <h2 id="inqTitle">Customer enquiries</h2>
+          <div id="inqMsg" aria-live="polite"></div>
+          <ul class="inq-list" id="inqList"></ul>
+          <p class="empty" id="inqEmpty" hidden>No enquiries yet.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="shipDialog" aria-labelledby="dlgTitle">
+    <div class="dlg-head"><h2 id="dlgTitle" class="h2"></h2><button class="btn btn-ghost btn-sm" id="dlgClose" type="button" aria-label="Close">&times;</button></div>
+    <dl class="meta-grid" id="dlgMeta"></dl>
+    <form id="eventForm" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="evStatus">New status</label><select id="evStatus"></select></div>
+        <div class="field"><label for="evLocation">Location (optional)</label><input id="evLocation" type="text" maxlength="120" placeholder="e.g. Lagos Hub"></div>
+      </div>
+      <div class="field"><label for="evNote">Note (optional, visible to customer)</label><input id="evNote" type="text" maxlength="200"></div>
+      <button class="btn btn-primary mt" id="evBtn" type="submit">Save update</button>
+    </form>
+    <div id="dlgMsg" aria-live="polite"></div>
+    <h3 class="h3">History</h3>
+    <ol class="timeline" id="dlgHistory"></ol>
+  </dialog>
+
+  <footer class="site-footer"><div class="container"><p class="copy">&copy; <span id="year">2026</span> Broutelogistics. All rights reserved.</p></div></footer>
+</body>
+</html>

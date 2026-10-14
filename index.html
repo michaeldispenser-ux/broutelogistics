@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta name="theme-color" content="#0F172A">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Broutelogistics | Global Freight &amp; Parcel Tracking</title>
+  <meta name="description" content="Broutelogistics: air freight, ocean freight and express parcel delivery with live shipment tracking.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Broutelogistics | Global Freight &amp; Parcel Tracking">
+  <meta property="og:description" content="Air, ocean and express logistics with live shipment tracking.">
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/utils.js" defer></script>
+  <script src="assets/js/api.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Broutelogistics home"><svg class="icon" aria-hidden="true"><use href="#i-package"/></svg><span>Broute<b>Logistics</b></span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      <nav class="site-nav" id="siteNav" aria-label="Main">
+        <a href="#track">Track</a>
+        <a href="#how">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Get a quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1>Fast, reliable global logistics</h1>
+        <p>Air freight, ocean freight and express delivery with live tracking from pickup to doorstep.</p>
+      </div>
+    </section>
+
+    <section id="track" class="track-section">
+      <div class="container">
+        <div class="card">
+          <h2>Track your shipment</h2>
+          <p class="lead">Enter your tracking number to see its latest status.</p>
+          <form class="track-form" id="trackForm" novalidate>
+            <div class="field">
+              <label for="trackInput">Tracking number</label>
+              <input id="trackInput" name="track" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. BRT-7K3M9QXD2P" maxlength="24" required>
+            </div>
+            <button class="btn btn-primary align-end" id="trackBtn" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> <span>Track shipment</span></button>
+          </form>
+          <div id="trackResult" class="result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">From booking to doorstep in three steps.</p>
+        <div class="grid-3 steps-num">
+          <div class="tile"><h3>Request a quote</h3><p>Tell us what you are shipping and where it is going. We reply with options and pricing.</p></div>
+          <div class="tile"><h3>We collect and move it</h3><p>Your shipment travels by air, sea or road, with a checkpoint recorded at every stage.</p></div>
+          <div class="tile"><h3>Track until delivery</h3><p>Use your tracking number any time to see where your shipment is.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Our logistics services</h2>
+        <p class="section-sub">Choose the speed and cost that fits your cargo.</p>
+        <div class="grid-3">
+          <article class="tile"><div class="icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-plane"/></svg></div><h3>Air freight</h3><p>Fast international delivery for high-priority shipments worldwide.</p></article>
+          <article class="tile"><div class="icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-ship"/></svg></div><h3>Ocean freight</h3><p>Cost-effective sea transport for large, bulk container shipments.</p></article>
+          <article class="tile"><div class="icon-wrap"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></div><h3>Express logistics</h3><p>Door-to-door express parcel delivery with end-to-end tracking visibility.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container narrow">
+        <div class="card">
+          <h2>Get a quote or ask a question</h2>
+          <p class="lead">Send us your details and we will get back to you by email.</p>
+          <form id="inquiryForm" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="qName">Full name</label><input id="qName" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+              <div class="field"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+              <div class="field"><label for="qPhone">Phone (optional)</label><input id="qPhone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+              <div class="field"><label for="qService">Service</label>
+                <select id="qService" name="service"><option value="">Not sure yet</option><option>Express</option><option>Air Freight</option><option>Ocean Freight</option></select></div>
+            </div>
+            <div class="field full"><label for="qMessage">Message</label><textarea id="qMessage" name="message" rows="5" maxlength="2000" required placeholder="What are you shipping, from where and to where?"></textarea></div>
+            <div class="trap" aria-hidden="true"><label for="qWebsite">Website</label><input id="qWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <button class="btn btn-accent" id="qBtn" type="submit">Send request</button>
+          </form>
+          <div id="inquiryMsg" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">Broutelogistics</p>
+        <p data-company-wrap><span data-company="address"></span></p>
+        <p data-company-wrap>Email: <a data-company="email" href="#"></a></p>
+        <p data-company-wrap>Phone: <a data-company="phone" href="#"></a></p>
+        <p data-company-wrap><span data-company="hours"></span></p>
+      </div>
+      <nav aria-label="Footer" class="footer-links">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of service</a>
+        <a href="admin.html" rel="nofollow">Staff login</a>
+      </nav>
+    </div>
+    <div class="container"><p class="copy">&copy; <span id="year">2026</span> Broutelogistics. All rights reserved.</p></div>
+  </footer>
+
+  <button class="chat-toggle" id="chatToggle" type="button" aria-expanded="false" aria-controls="chatPanel" aria-label="Open chat assistant"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></button>
+  <section class="chat-panel" id="chatPanel" aria-label="Chat assistant" hidden>
+    <div class="chat-head"><span>Broute Assistant</span><button type="button" id="chatClose" aria-label="Close chat"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+    <form class="chat-form" id="chatForm">
+      <label class="visually-hidden" for="chatInput">Your message</label>
+      <input id="chatInput" type="text" placeholder="Ask a question or paste a tracking number" autocomplete="off" maxlength="300" required>
+      <button class="btn btn-primary btn-sm" type="submit" aria-label="Send"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+    </form>
+  </section>
+</body>
+</html>
