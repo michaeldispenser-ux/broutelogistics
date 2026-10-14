@@ -5,8 +5,8 @@
  */
 window.BROUTE_CONFIG = {
   // Supabase project (Project Settings -> API)
-  supabaseUrl: '',          // e.g. 'https://abcdxyz.supabase.co'
-  supabaseAnonKey: '',      // the "anon" / "publishable" key
+  supabaseUrl: 'https://bnmtqaixjvvtowumeddj.supabase.co',          // e.g. 'https://abcdxyz.supabase.co'
+  supabaseAnonKey: 'sb_publishable_OWoP9GxVGhXi1WOAQfEgXw_1O7Smrk0',      // the "anon" / "publishable" key
 
   // Optional AI chat: URL of the deployed Edge Function, e.g. 'https://abcdxyz.supabase.co/functions/v1/chat'
   chatEndpoint: '',
@@ -17,6 +17,6 @@ window.BROUTE_CONFIG = {
     email: '',
     phone: '',
     address: '',
-    hours: ''
+    hours: 'Mondays - Sundays 24/7'
   }
 };
